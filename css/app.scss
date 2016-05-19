@@ -1,0 +1,99 @@
+$dark-grey: rgb(51, 51, 51);
+$light-grey: rgb(240, 240, 240);
+$lighter-grey: rgb(245, 245, 245);
+$pad: 5px;
+$fullwidth: 500px;
+$fullheight: 500px;
+
+$font-stack: Helvetica, sans-serif;
+
+@mixin centre($axis: "both"){
+    position:absolute;
+    @if $axis == "y"{
+        top:50%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+    }
+    @if $axis == "x"{
+        left:50%;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+    @if $axis == "both"{
+        top:50%;
+        left:50%;
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+@mixin outline {
+  border: 2px dashed #4078c0;
+  border-radius: 10px;
+  box-shadow: 0px 3px 2px 0px $lighter-grey;
+}
+
+// actual elements
+body {
+  font-family: $font-stack;
+}
+
+// .dropbox {
+//   text-align: center;
+//   font-family: $font-stack;
+//   @include outline;
+//   background-color: $light-grey;
+//   width: $fullwidth/2;
+//   height:60px;
+//}
+
+.drag {
+  box-shadow: 0px 0px 2px grey;
+}
+
+.button{
+  //border: 1px solid grey;
+  box-shadow: 0px 3px 2px 0px grey;
+  cursor: pointer;
+}
+
+#upload{
+  //border-radius: 2px;
+  width: 121px;
+  height: 81px;
+  @include centre;
+}
+
+#closeButton{
+  position: absolute;
+  top:-15px;
+  right:-15px;
+  // font-family: inherit;
+  // text-align: center;
+  // font-size: large;
+  background-color: transparent;
+  // color:white;
+  //float: right;
+  border-radius: 100%;
+  //border: 1px dashed;
+  width: 30px;
+  height: 30px;
+}
+
+#main {
+  width:$fullwidth;
+  height:$fullheight;
+  @include centre;
+  background-color: $lighter-grey;
+  margin: 5px 5px 5px 5px;
+  @include outline;
+}
